@@ -11,6 +11,13 @@
 
 ---
 
+# v3.0.1
+- Fix broadcasting bug in vtoz for radial DMAs
+
+# v3.0.0
+- Rebase to different host (https://github.com/mdp-aerosol-group/DifferentialMobilityAnalyzers)
+- Flatten repo by removing commit history. This was done to improve load times and remove stale files. The repo was changed so the old repo remains available for historical reasons.
+
 # v2.5.6
 - Add support for multiple gases. Currently Air() and N2() are implemented. The gas can be passed as argument to DMAconfig. Calling DMAconfig without specifying the gas defaults to Air(). Additional gas parameterizations can be added by adding dispatch to the mean free path and viscosity functions. 
 - Merge CompatHelper: bump compat for CSV to 0.9

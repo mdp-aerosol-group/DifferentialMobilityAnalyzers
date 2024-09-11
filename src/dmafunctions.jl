@@ -334,8 +334,8 @@ mobility = vtoz(Λ,1000.0) # [m2 V-1 s-1]
 ```
 """
 vtoz(Λ::DMAconfig, v) =
-    (Λ.DMAtype == :radial) ? Λ.qsh .* Λ.l / (π .* (Λ.r2^2.0 - Λ.r1^2) .* v) :
-    Λ.qsh ./ (2.0π .* Λ.l .* v) .* log(Λ.r2 / Λ.r1)
+    (Λ.DMAtype == :radial) ? Λ.qsh .* Λ.l ./ (π .* (Λ.r2.^2.0 .- Λ.r1.^2) .* v) :
+    Λ.qsh ./ (2.0π .* Λ.l .* v) .* log.(Λ.r2 / Λ.r1)
 
 @doc raw"""
     ztov(Λ::DMAconfig, v)
@@ -524,7 +524,7 @@ end
 
 Construct the [DifferentialMobilityAnalyzer](@ref) type for DMA configuration
 [DMAconfig](@ref). The size grid is constructed for a vector of voltages sorted from
-low to high. The voltage correspond to bin edges and might correspond to gridded data
+low to high. The voltage correspnd to bin edges and might correspond to gridded data
 output obtained from an SMPS. The number of bins is bins = length(V)-1. 
 
 Diameters stored in δ are in units of nm.
